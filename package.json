@@ -1,0 +1,23 @@
+{
+  "name": "pics",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "electron"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hecto932/pics.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hecto932/pics/issues"
+  },
+  "homepage": "https://github.com/hecto932/pics#readme",
+  "dependencies": {
+    "electron": "^5.0.3"
+  }
+}
