@@ -19,7 +19,10 @@ function onClosed () {
 function createMainWindow () {
   const win = new BrowserWindow({
     width: 600,
-    height: 400
+    height: 400,
+    webPreferences: {
+      nodeIntegration: true // Use node.js API on browserWindow
+    }
   })
 
   win.loadURL(`file:///${path.join(__dirname, 'renderer', 'index.html')}`)
