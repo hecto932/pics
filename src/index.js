@@ -27,7 +27,7 @@ app.on('ready', () => {
     console.log(`La posicion es ${position}`)
   })
 
-  win.loadURL('https://devdocs.io/')
+  win.loadURL(`file://${__dirname}/renderer/index.html`)
 
   win.on('close', () => {
     win = null

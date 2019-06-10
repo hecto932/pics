@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "electron index.js"
+    "dev": "electron src/index.js"
   },
   "repository": {
     "type": "git",
