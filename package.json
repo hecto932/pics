@@ -4,7 +4,7 @@
   "description": "A simple electron app to learning",
   "main": "index.js",
   "scripts": {
-    "dev": "npm run lint && DEBUG=electron-app:* electron src/index.js",
+    "dev": "DEBUG=electron-app:* electron src/index.js",
     "rebuild": "./node_modules/.bin/electron-rebuild",
     "lint": "standard"
   },
