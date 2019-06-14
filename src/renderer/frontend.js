@@ -2,12 +2,22 @@ const url = require('url')
 const path = require('path')
 
 const applyFilter = require('./filters')
+const { setIpc, sendIpc } = require('./ipcRendererEvents')
 
 window.addEventListener('load', () => {
+  setIpc()
   addImagesEvents()
   searchImagesEvent()
   selectEvent()
+  openDirectory()
 })
+
+function openDirectory () {
+  const openDirectory = document.getElementById('open-directory')
+  openDirectory.addEventListener('click', () => {
+    sendIpc()
+  })
+}
 
 function addImagesEvents () {
   const thumbs = document.querySelectorAll('li.list-group-item')

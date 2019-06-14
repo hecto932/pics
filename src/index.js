@@ -2,7 +2,7 @@
 
 const debug = require('debug')('electron-app:index')
 const path = require('path')
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow, ipcMain } = require('electron')
 
 // Adds debug features like hotkeys for triggering dev tools and reload
 require('electron-debug')()
@@ -48,4 +48,9 @@ app.on('activate', () => {
 app.on('ready', () => {
   debug(`App is ready...`)
   mainWindow = createMainWindow()
+})
+
+ipcMain.on('ping', (event, arg) => {
+  console.log('ipcMain', arg)
+  event.sender.send('pong', new Date())
 })
