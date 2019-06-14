@@ -1,9 +1,12 @@
 const url = require('url')
 const path = require('path')
 
+const applyFilter = require('./filters')
+
 window.addEventListener('load', () => {
   addImagesEvents()
   searchImagesEvent()
+  selectEvent()
 })
 
 function addImagesEvents () {
@@ -17,9 +20,13 @@ function addImagesEvents () {
 }
 
 function changeImage (node) {
-  document.querySelector('li.selected').classList.remove('selected')
-  node.classList.add('selected')
-  document.getElementById('image-displayed').src = node.querySelector('img').src
+  if (node) {
+    document.querySelector('li.selected').classList.remove('selected')
+    node.classList.add('selected')
+    document.getElementById('image-displayed').src = node.querySelector('img').src
+  } else {
+    document.getElementById('image-displayed').src = ''
+  }
 }
 
 function searchImagesEvent () {
@@ -55,4 +62,13 @@ function showAllImages() {
   for (let i = 0; i < thumbs.length; ++i) {
     thumbs[i].parentNode.classList.remove('hidden')
   }
+}
+
+function selectEvent () {
+  const select = document.getElementById('filters')
+
+  select.addEventListener('change', function () {
+    applyFilter(this.value, document.getElementById('image-displayed'))
+  })
+
 }
