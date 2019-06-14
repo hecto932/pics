@@ -2,21 +2,19 @@ const url = require('url')
 const path = require('path')
 
 const applyFilter = require('./filters')
-const { setIpc, sendIpc } = require('./ipcRendererEvents')
+const { setIpc, openDirectory } = require('./ipcRendererEvents')
 
 window.addEventListener('load', () => {
   setIpc()
   addImagesEvents()
   searchImagesEvent()
   selectEvent()
-  openDirectory()
+  buttonEvent('open-directory', openDirectory)
 })
 
-function openDirectory () {
-  const openDirectory = document.getElementById('open-directory')
-  openDirectory.addEventListener('click', () => {
-    sendIpc()
-  })
+function buttonEvent (id, func) {
+  const openDirectory = document.getElementById(id)
+  openDirectory.addEventListener('click', func)
 }
 
 function addImagesEvents () {

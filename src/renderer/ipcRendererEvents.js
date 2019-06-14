@@ -8,11 +8,11 @@ function setIpc () {
   })
 }
 
-function sendIpc() {
-  ipcRenderer.send('ping', new Date())
+function openDirectory() {
+  ipcRenderer.send('open-directory', new Date())
 }
 
 module.exports = {
   setIpc,
-  sendIpc
+  openDirectory
 }
