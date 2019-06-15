@@ -65,13 +65,16 @@ ipcMain.on('open-directory', event => {
       let images = [];
       if (dir && dir.length) {
         fs.readdir(dir[0], (err, files) => {
+          if (err) throw err
           images = files
             .filter(img => isImage(img))
             .map(img => ({
+              filename: img,
               src: `file://${path.join(dir[0], img)}`,
               size: filesize(fs.statSync(path.join(dir[0], img)).size)
             }));
           console.log(images);
+          event.sender.send('load-images', images)
         });
       }
     }
