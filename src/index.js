@@ -23,6 +23,7 @@ function createMainWindow() {
   const win = new BrowserWindow({
     width: 600,
     height: 400,
+    titleBarStyle: false,
     webPreferences: {
       nodeIntegration: true // Use node.js API on browserWindow
     }
